@@ -18,11 +18,11 @@ export const Login = () => {
     resolver: zodResolver(LoginFormSchema),
   });
 
-  const { register: registerContext } = useContext(Context);
+  const { login } = useContext(Context);
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
-    console.log(data);
+    login(data, navigate)
   };
   return (
     <section className="flex flex-col items-center">
@@ -56,7 +56,7 @@ export const Login = () => {
             helperText={errors?.confirmpassword?.message}
           />
           <div className="text-center">
-            <SubmitButton btnValue="Registrar" />
+            <SubmitButton btnValue="Entrar" />
           </div>
         </form>
         <h3 className="mt-5">

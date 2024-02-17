@@ -36,12 +36,28 @@ export function useAuth() {
   }
   async function login(user, navigate){
     try {
+      const data = await api.post('/users/login', user).then((res) => {
+        
+        return res.data
+      })
+      await authUser(data, navigate)
+      useToast(data.message);
       
+
     } catch (error) {
       useToast(error.response.data.message , "error");
       
     }
   }
+  function logout(navigate){
+    const msg = "Você saiu!"
+    setAuthenticated(false)
+    localStorage.removeItem('token')
+    api.defaults.headers.Authorization = undefined
+    navigate('/')
 
-  return { authenticated, register };
+    useToast(msg)
+  }
+
+  return { authenticated, register, login, logout };
 }
