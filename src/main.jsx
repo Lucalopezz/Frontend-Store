@@ -8,12 +8,15 @@ import { Home } from "./pages/Home.jsx";
 import { UserProvider } from "./context/UserContext.jsx";
 import { Register } from "./pages/auth/Register.jsx";
 import { Login } from "./pages/auth/Login.jsx";
-import {Profile} from "./pages/user/Profile.jsx";
+import { Profile } from "./pages/user/Profile.jsx";
+import { ErrorElement } from "./components/layout/ErrorElement.jsx";
+import { PrivateRoute } from "./pages/auth/PrivateRoute.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorElement />,
     children: [
       {
         path: "/",
@@ -29,7 +32,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/profile",
-        element: <Profile />,
+        element: <PrivateRoute>
+          <Profile/>
+        </PrivateRoute>,
       },
     ],
   },
