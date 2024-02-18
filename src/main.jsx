@@ -8,6 +8,7 @@ import { Home } from "./pages/Home.jsx";
 import { UserProvider } from "./context/UserContext.jsx";
 import { Register } from "./pages/auth/Register.jsx";
 import { Login } from "./pages/auth/Login.jsx";
+import {Profile} from "./pages/user/Profile.jsx";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
       },
     ],
   },

@@ -13,7 +13,10 @@ export const Navlinks = () => {
       </Link>
       {!authenticated && (
         <>
-          <Link to="/register" className="text-white text-xl hover:text-stone-300">
+          <Link
+            to="/register"
+            className="text-white text-xl hover:text-stone-300"
+          >
             Registrar
           </Link>
           <Link to="/login" className="text-white text-xl hover:text-stone-300">
@@ -22,12 +25,20 @@ export const Navlinks = () => {
         </>
       )}
       {authenticated && (
-        <button
-          onClick={(e) => logout(navigate)}
-          className="bg-transparent  text-white text-xl px-3  hover:border-transparent rounded hover:text-stone-300"
-        >
-          Sair
-        </button>
+        <div>
+          <Link
+            to="/profile"
+            className="text-white text-xl hover:text-stone-300 px-3"
+          >
+            Perfil
+          </Link>
+          <button
+            onClick={(e) => logout(navigate)}
+            className="bg-transparent  text-white text-xl px-3  hover:border-transparent rounded hover:text-stone-300"
+          >
+            Sair
+          </button>
+        </div>
       )}
     </div>
   );
