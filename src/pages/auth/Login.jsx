@@ -47,14 +47,7 @@ export const Login = () => {
             {...register("password")}
             helperText={errors?.password?.message}
           />
-          <Input
-            text="Confirme a senha"
-            type="password"
-            name="confirmpassword"
-            placeholder="Digite sua senha novamente"
-            {...register("confirmpassword")}
-            helperText={errors?.confirmpassword?.message}
-          />
+       
           <div className="text-center">
             <SubmitButton btnValue="Entrar" />
           </div>

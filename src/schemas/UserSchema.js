@@ -17,9 +17,5 @@ export const LoginFormSchema = z
   .object({
     email: z.string(),
     password: z.string(),
-    confirmpassword: z.string(),
   })
-  .refine((data) => data.password === data.confirmpassword, {
-    message: "As senhas não conferem!",
-    path: ["confirmpassword"],
-  });
+  
